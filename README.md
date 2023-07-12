@@ -43,13 +43,17 @@ Para clonar el repositorio, necesitarás [Git](https://git-scm.com) y [Python](h
 $ git clone https://github.com/KaoXx/EasyProfile
 
 # Entrar en el directorio creado
-$ cd electron-markdownify
+$ cd EasyProfile
 
 # Instalar las dependencias
 $ pip install -r requirements.txt
 
-# Ejecutar el script
+# Entrar en el directorio app
+$ cd app
+
+# Ejecutar el script 
 $ python EasyProfile.py
+
 ```
 
 > **Note**
