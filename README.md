@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/KaoXx/EasyProfile/blob/main/app/img/logo.png" alt="EasyProfile" width="200"></a>
+  <a href="https://github.com/KaoXx"><img src="https://github.com/KaoXx/EasyProfile/blob/main/app/img/logo.png?raw=true" alt="EasyProfile" width="200"></a>
   <br>
   EasyProfile 0.1.0
   <br>
@@ -18,7 +18,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/KaoXx/EasyProfile/blob/main/app/img/easyprofile.gif)
+![screenshot](https://github.com/KaoXx/EasyProfile/blob/main/app/img/easyprofile.gif?raw=true)
 
 ## Key Features
 
