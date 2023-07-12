@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="EasyProfile" width="200"></a>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/KaoXx/EasyProfile/blob/main/app/img/logo.png" alt="EasyProfile" width="200"></a>
   <br>
   EasyProfile 0.1.0
   <br>
@@ -18,13 +18,13 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+![screenshot](https://raw.githubusercontent.com/KaoXx/EasyProfile/blob/main/app/img/easyprofile.gif)
 
 ## Key Features
 
 * Importación de Evidencias - Realizar cambios, Ver cambios
   - Importamos el documento de Word que contiene las evidencias del perfil.
-* Importación de la plantilla de Excel
+* Importación de la plantilla de Excel.
   - Importamos la plantilla que contiene el formato para el informe de PwC.
 * Extracción de las imagenes del documento con las evidencias.  
 * Creación del directorio que contendrá las evidencias en formato png y el Informe final.
@@ -63,18 +63,13 @@ Puedes [descargar](https://github.com/amitmerchant1990/electron-markdownify/rele
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/5Zn8Xh3l9" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<a href="https://bmc.link/kaoxx" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-<p>Or</p> 
-
-<a href="https://www.patreon.com/amitmerchant">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
 
 ## You may also like...
 
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+- [CryptoHack](https://github.com/KaoXx/Cryptohack) - CryptoHack Writeup
+- [Gym App](https://github.com/KaoXx/IngSoftwareGimnasio) - Proyecto Ing. Software
 
 ## License
 
