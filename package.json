@@ -1,0 +1,44 @@
+{
+    "name": "EasyProfile",
+    "version": "0.1.0",
+    "description": "Sencillo script para optimizar los controles de perfiles.",
+    "main": "EasyProfile.py",
+    "productName": "EasyProfile",
+    "scripts": {
+        "start": "Python EasyProfile.py"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KaoXx/EasyProfile",
+        "docs": "https://github.com/KaoXx/EasyProfile/blob/main/README.md"
+    },
+    "keywords": [
+        "python",
+        "markdown",
+        "plain",
+        "Word",
+        "Excel",
+        "Comments",
+        "Automation"
+    ],
+    "author": "Jesús Andrés Altozano <jesus.andresa@edu.uah.es>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/KaoXx/EasyProfile/issues"
+    },
+    "homepage": "https://github.com/KaoXx/EasyProfile#readme",
+    "_npmUser": {
+        "name": "kaoxx",
+        "email": "jesus.andresa@edu.uah.es"
+    },
+    "devDependencies": {
+        "python": "^3.8"
+  
+    },
+    "dependencies": {
+        "docx2txt": "^0.2.1",
+        "openpyxl": "^3.1.2",
+        "Pillow==9.4.0": "^9.4.0",
+        "python-docx": "^0.8.11"
+    }
+}
