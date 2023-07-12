@@ -53,7 +53,6 @@ $ cd app
 
 # Ejecutar el script 
 $ python EasyProfile.py
-
 ```
 
 > **Note**
