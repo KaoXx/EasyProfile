@@ -58,9 +58,6 @@ $ python EasyProfile.py
 > **Note**
 > Si estas usando la Bash de Linux para Windows puedes, [mirar esta guia](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/)
 
-> **Note**
-> Si necesitas un manual de usuario para ver como funciona el script puedes, [mirar esta guia](https://kaoxx.readme.io/docs/getting-started)
-
 ## Download
 
 Puedes [descargar](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) la última versión de EasyProfile.exe, hay que tener en cuanta de que con este método solo funcionará para entornos Windows.
