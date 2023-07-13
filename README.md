@@ -59,7 +59,7 @@ $ python EasyProfile.py
 > Si estas usando la Bash de Linux para Windows puedes, [mirar esta guia](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/)
 
 > **Note**
-> Si necesitas un manual de usuario para ver como funciona el script puedes, [mirar esta guia](https://dash.readme.com/project/kaoxx/v0.1.0/docs/getting-started)
+> Si necesitas un manual de usuario para ver como funciona el script puedes, [mirar esta guia](https://kaoxx.readme.io/docs/getting-started)
 
 ## Download
 
