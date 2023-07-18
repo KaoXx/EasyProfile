@@ -25,12 +25,12 @@
 * Importación de Evidencias - Realizar cambios, Ver cambios
   - Importamos el documento de Word que contiene las evidencias del perfil.
 * Importación de la plantilla de Excel.
-  - Importamos la plantilla que contiene el formato para el informe de PwC.
+  - Importamos la plantilla que contiene el formato para el informe.
 * Extracción de las imagenes del documento con las evidencias.  
 * Creación del directorio que contendrá las evidencias en formato png y el Informe final.
 * Añadir comentarios a las evidencias dinámicamente.
 * Permite añadir el rol probado, el nivel de riesgo del perfil y el usuario probado.
-* Generación del informe PwC con las evidencias y comentarios.
+* Generación del informe con las evidencias y comentarios.
 * Multiplataforma (Script python)
   - Windows, macOS and Linux ready.
 
