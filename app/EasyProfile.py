@@ -25,7 +25,6 @@ from PIL import ImageTk
 from docx import Document
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as OpenpyxlImage
-from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment
 import time
 
@@ -75,7 +74,7 @@ def extract_images_from_word(file_path):
         os.makedirs(folder_path, exist_ok=True)
 
         for i, (image_filename, image_data) in enumerate(reversed(images)):
-            image_path = os.path.join(folder_path, f"evidencia{i+1}.png")
+            image_path = os.path.join(folder_path, f"imagen{i+1}.png")
             with open(image_path, "wb") as f:
                 f.write(image_data)
             image_filenames.append(image_filename)
@@ -89,6 +88,10 @@ def add_images_to_excel(file_path):
         workbook = load_workbook(excel_template_path)
         sheet = workbook.active
         image_files = os.listdir(folder_path)
+
+        # Sort the image files to maintain a consistent order
+        image_files.sort()
+
         y = 2
 
         for i, image_file in enumerate(image_files):
@@ -122,6 +125,10 @@ def add_images_to_excel(file_path):
             sheet[f"{col_letter}{y+28-1}"].alignment = Alignment(vertical='top', wrap_text=False)
 
             y +=20
+
+            # Wait for the preview window to be closed before moving on to the next image
+            preview_window.wait_window()
+
         #workbook.save(file_path)
         sheet.cell(row=10, column=4).value = generate_text()
         sheet.cell(row=26, column=4).value = generate_text3()
