@@ -19,7 +19,7 @@ con el objetivo de ahorrar tiempo.
 """
 import os
 import sys
-from tkinter import Tk, filedialog, Label, Button, simpledialog, Toplevel,messagebox
+from tkinter import Tk, filedialog, Label, Button, simpledialog, Toplevel, messagebox
 from PIL import Image as PILImage
 from PIL import ImageTk
 from docx import Document
@@ -27,10 +27,13 @@ from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as OpenpyxlImage
 from openpyxl.styles import Alignment
 import time
+import docx2txt
+from natsort import natsorted
 
-excel_template_path = ""
-image_filenames = []
-NivelRiesgo = ""
+
+# Constants
+APP_TITLE = "Easy Profile"
+
 
 def select_word_file():
     root = Tk()
@@ -42,8 +45,7 @@ def select_word_file():
             add_images_to_excel(file_path)
             root.destroy()
     except ValueError:
-        messagebox.showerror("Error","[!] Selecciona un fichero válido")
-        
+        messagebox.showerror("Error", "[!] Selecciona un fichero válido")
 
 
 def select_excel_template():
@@ -54,32 +56,17 @@ def select_excel_template():
         excel_template_path = filedialog.askopenfilename(filetypes=[("Excel Files", "*.xlsx")])
         root.destroy()
     except ValueError:
-        messagebox.showerror("Error","[!] Selecciona un fichero válido")
+        messagebox.showerror("Error", "[!] Selecciona un fichero válido")
 
 
 def extract_images_from_word(file_path):
     try:
-        global image_filenames
-        doc = Document(file_path)
-        images = []
-
-        for rel in doc.part.rels.values():
-            if "image" in rel.reltype:
-                image_data = rel.target_part.blob
-                image_filename = rel.target_ref
-                images.append((image_filename, image_data))
-
         folder_path = os.path.splitext(file_path)[0]
         check_folder_existence(folder_path)
         os.makedirs(folder_path, exist_ok=True)
-
-        for i, (image_filename, image_data) in enumerate(reversed(images)):
-            image_path = os.path.join(folder_path, f"imagen{i+1}.png")
-            with open(image_path, "wb") as f:
-                f.write(image_data)
-            image_filenames.append(image_filename)
+        text = docx2txt.process(file_path, folder_path)
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error al extraer las evidencias")
+        messagebox.showerror("Error", "[!] Se ha producido un error al extraer las evidencias")
 
 
 def add_images_to_excel(file_path):
@@ -89,8 +76,8 @@ def add_images_to_excel(file_path):
         sheet = workbook.active
         image_files = os.listdir(folder_path)
 
-        # Sort the image files to maintain a consistent order
-        image_files.sort()
+        # Sort the image files using natsort to maintain a consistent order
+        image_files = natsorted(image_files)
 
         y = 2
 
@@ -124,12 +111,12 @@ def add_images_to_excel(file_path):
             sheet.add_image(resized_img, f"{col_letter}{y+28}")
             sheet[f"{col_letter}{y+28-1}"].alignment = Alignment(vertical='top', wrap_text=False)
 
-            y +=20
+            y += 20
 
             # Wait for the preview window to be closed before moving on to the next image
             preview_window.wait_window()
 
-        #workbook.save(file_path)
+        # workbook.save(file_path)
         sheet.cell(row=10, column=4).value = generate_text()
         sheet.cell(row=26, column=4).value = generate_text3()
         sheet.cell(row=531, column=4).value = generate_text2()
@@ -139,7 +126,7 @@ def add_images_to_excel(file_path):
         time.sleep(1)
         root.destroy()
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error al procesar el Excel")
+        messagebox.showerror("Error", "[!] Se ha producido un error al procesar el Excel")
 
 
 def add_comment(image_file):
@@ -147,7 +134,7 @@ def add_comment(image_file):
         comment = simpledialog.askstring("Agregar comentario", f"Ingrese un comentario para la imagen '{image_file}':")
         return comment if comment else ""
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error en tiempo de ejecución")
+        messagebox.showerror("Error", "[!] Se ha producido un error en tiempo de ejecución")
 
 
 def generate_text():
@@ -161,7 +148,8 @@ def generate_text():
         text = text_template.format(Rol=user_1, NdR=NivelRiesgo, NombreUsuario=user_3)
         return text
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error en tiempo de ejecución")
+        messagebox.showerror("Error", "[!] Se ha producido un error en tiempo de ejecución")
+
 
 def generate_text2():
     try:
@@ -170,7 +158,8 @@ def generate_text2():
         text = text_template.format(NivelRiesgo=NivelRiesgo)
         return text
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error en tiempo de ejecución")
+        messagebox.showerror("Error", "[!] Se ha producido un error en tiempo de ejecución")
+
 
 def generate_text3():
     try:
@@ -179,13 +168,13 @@ def generate_text3():
         text = text_template.format(NivelRiesgo=NivelRiesgo)
         return text
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error en tiempo de ejecución")
+        messagebox.showerror("Error", "[!] Se ha producido un error en tiempo de ejecución")
 
 
 def center_window(window):
     # Obtener las dimensiones de la pantalla
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
 
     # Calcular la posición x e y para centrar la ventana
     window_width = window.winfo_width()
@@ -197,12 +186,12 @@ def center_window(window):
     window.geometry(f"+{x}+{y}")
 
 
-
 def check_folder_existence(folder_path):
     if os.path.exists(folder_path):
-        messagebox.showerror("Error","Ya existe una carpeta con el mismo nombre que el archivo Word seleccionado.")
+        messagebox.showerror("Error", "Ya existe una carpeta con el mismo nombre que el archivo Word seleccionado.")
         sys.exit()
     return False
+
 
 def show_warning():
     toplevel = Toplevel()
@@ -215,17 +204,15 @@ def show_warning():
     toplevel.wait_window()  # Esperar hasta que el usuario cierre la ventana emergente
 
 
-
-#Flujo Inicial del programa
-
+# Flujo Inicial del programa
 if __name__ == '__main__':
     try:
         root = Tk()
         root.withdraw()
         show_warning()
         root.deiconify()
-        
-        root.title("Easy Profile")
+
+        root.title(APP_TITLE)
         center_window(root)
 
         label_template = Label(root, text="Seleccione una plantilla de Excel")
@@ -241,5 +228,6 @@ if __name__ == '__main__':
         button_select_word.pack(anchor="center", fill="x")
         root.mainloop()
     except ValueError:
-        messagebox.showerror("Error","[!] Se ha producido un error en tiempo de ejecución")
+        messagebox.showerror("Error", "[!] Se ha producido un error en tiempo de ejecución")
+
 
