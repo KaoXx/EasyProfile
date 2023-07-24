@@ -22,7 +22,6 @@ import sys
 from tkinter import Tk, filedialog, Label, Button, simpledialog, Toplevel, messagebox
 from PIL import Image as PILImage
 from PIL import ImageTk
-from docx import Document
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as OpenpyxlImage
 from openpyxl.styles import Alignment
