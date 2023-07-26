@@ -3,7 +3,7 @@
   <br>
   <a href="https://github.com/KaoXx"><img src="https://github.com/KaoXx/EasyProfile/blob/main/app/img/logo.png?raw=true" alt="EasyProfile" width="200"></a>
   <br>
-  EasyProfile 0.1.0
+  EasyProfile 0.2.1
   <br>
 </h1>
 
