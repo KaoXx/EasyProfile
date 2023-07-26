@@ -118,7 +118,7 @@ def add_images_to_excel(file_path):
         # workbook.save(file_path)
         sheet.cell(row=10, column=4).value = generate_text()
         sheet.cell(row=26, column=4).value = generate_text3()
-        sheet.cell(row=531, column=4).value = generate_text2()
+        sheet.cell(row=1190, column=4).value = generate_text2()
 
         excel_file_path = os.path.join(folder_path, "Informe PwC.xlsx")
         workbook.save(excel_file_path)
